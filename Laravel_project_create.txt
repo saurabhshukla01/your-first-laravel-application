@@ -1,0 +1,499 @@
+Create Laravel Project First Application Using Php Code  ⇒
+
+
+
+Link :   https://www.parthpatel.net/laravel-tutorial-for-beginner/
+
+
+Laravel 6 Tutorial for Beginner: Create your First To-Do App
+Learn Laravel in simple and easy steps starting from basic to advanced concepts by creating your first to-do application with basic CRUD functionality
+Parth Patel on September 15, 2019
+In this Laravel tutorial, we will learn how to install laravel and how to create your first app in laravel for beginners. Now you can learn laravel easily without the need of watching laravel video series or laravel video tutorials. This laravel tutorial will explain all the necessary concepts in easy language for you to learn laravel easily and understand it better.
+Contents [hide]
+Introduction
+Installation and Configuration
+Building Simple CRUD To-do Application in Laravel : Laravel Tutorial
+What’s next for this project:
+Conclusion:
+Introduction
+Laravel is elegant, expressive and flexible PHP framework with extreme focus on clean code and speed which describes itself as “The PHP framework for web artisans”. It is a free and Open source PHP framework created by Taylor Otwell, based on Model View Controller (MVC) architecture.
+Creating a web application from scratch can be daunting specially if you are beginner. A simple web application also contains various small and big pieces and creating those pieces every time you are creating a web app can be boring and repetitive and there is no point in reinventing wheels. That’s when Laravel comes to your rescue.
+
+Laravel framework provides various PHP libraries and helper functions and can help you to focus on more important pieces while providing common functions and logic to speed up the development time and ease up the development.
+Initially there is a bit of learning curve specially if you are a beginner and have no experience with any kind of web framework. But believe me, once you flow with it, you will not only love, you will become addicted to it. Laravel aims at creativity in development. It uses the word ‘Web Artisan’ to point out the creative hidden inside the developer’s heart.Result -> Efficient Application with fewer lines and well designed code.
+To make it easier for you to learn, I wrote this laravel tutorial with beginner audience in mind. Thus you will find it easy to follow this tutorial for laravel to learn.
+What you should know prior to using our Laravel tutorial?
+HTML/CSS (Duh!)
+Basic understanding of core PHP
+Intermediate PHP – This is sort of optional but if you have time, do learn some intermediate concepts like php OOP, abstraction etc.
+Basic Understanding of MVC Framework
+Perseverance – Even though it’s easy to learn Laravel, it will test your patience at various interval. At least I had some roadblocks because I knew PHP but I had no knowledge about frameworks. Even while learning the framework, or successfully completing projects, I was having confusion in the basic underlying concepts of the MVC Framework. But I didn’t give up.
+Passion – C’mon Web development is fun! At least Laravel made it enjoyable. It’s best to enjoy the learning journey.
+Installation and Configuration
+Laravel offers various ways to install in windows or mac. Best and easiest way to install Laravel is through Composer. Composer is dependency manager for PHP which you can install on your web server.
+Prerequisites for installing Laravel 6
+Before installing Laravel on your local platform(Localhost) you need to install following programs:
+Web Server – Apache or nGinx
+>= PHP 7.2.0
+Some PHP extensions which might be pre-installed:
+BCMath PHP Extension
+Ctype PHP Extension
+JSON PHP Extension
+Mbstring PHP Extension
+OpenSSL PHP Extension
+PDO PHP Extension
+Tokenizer PHP Extension
+XML PHP Extension
+MySQL
+Composer
+An IDE will be really helpful for Laravel development. I recommend Sublime 3 or Atom. Both are free to use but Sublime also has PRO version.
+Steps to Install Laravel in your Localhost:
+Steps for Mac UsersSteps for Windows Users
+Steps for Mac users:
+Make sure brew is installed.
+Run
+brew install composer
+Copy
+Run `composer` to verify whether it installed successfully globally or not as shown below.
+Now execute this command –
+composer global require “laravel/installer”
+Copy
+Now execute below command to place Composer/vendor/bin directory to  $PATH variable
+echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bash_profile
+Copy
+Once installed, you can create project simply by
+Going to desired folder
+Execute -- laravel new projectname
+Steps for windows users:
+Download Composer from https://getcomposer.org/download/ and install it.
+After installation, you should check whether its installed globally or not. Open command Prompt and enter command “composer” just like shown below. 
+Place ~/.composer/vendor/bin directory path in your environment variable PATH
+Now execute this command –
+composer global require “laravel/installer”
+Copy
+Once installed, you can create project simply by
+Going to desired folder
+Shift + right click and select Open command prompt here
+Execute --- laravel new projectname
+For our example , execute 
+Laravel new todo
+Copy
+Building Simple CRUD To-do Application in Laravel : Laravel Tutorial
+Best way to learn programming is to practice. Thus, here we will be learning basic concepts of Laravel by developing a simple To-Do Laravel Web App which will do below functions with the help of this laravel tutorial.
+You can register and login to the web app
+You can add tasks to your to-do list
+You can edit as well as delete those tasks
+Your list is only visible to you thus it implements authentication using email id and password
+Exploring Directory Structure
+Laravel applications follow the Model-View-Controller architecture design pattern.
+
+Image Source : SelfTaughtCoders.com
+Models represents the entities in database and helps you to query the database and return the data
+Views are the pages which will be displayed when accessed the app. View Component is used for the User Interface of the application.
+Controllers handle user requests, gets required data from the models and pass them to the Views. Controllers acts as an intermediary between Model and View Components to process the business logic and incoming request.
+When you installed composer, and created your first Laravel web app, you might have noticed the app folder with different files and folders. I know if you are beginner, you may have a lot of questions about what are these folders for etc. etc.
+Let’s understand some
+app
+
+	Console
+
+	Exceptions
+
+	Http
+
+	Providers
+
+bootstrap
+
+config
+
+database
+
+	migrations
+
+	seeds
+
+public
+
+resources
+
+	js
+    
+    lang  
+  
+	saas
+
+	views
+
+routes
+
+storage
+
+	app
+
+	framework
+
+	logs
+
+tests
+
+vendor
+App: This directory is the meat of the application and contains the core code.
+Console: This directory contains all the custom Artisan commands created using make:command
+Exceptions: This directory contains the application’s exception handler and is a good place to add custom exception classes to handle different exceptions thrown by your application
+Http: This directory contains all your controllers, middleware and requests
+Providers: This directory contains all your service providers for the application. You can know more about service providers here
+Bootstrap: This directory contains framework bootstrap as well as configuration files. It also contains Cache directory which contains framework generated cache files
+Config: This directory contains all your application’s configuration files.
+Database: This directory contains all database migrations and seeds. You can also store SQLite database file here
+Public: This directory contains assets like images, js files and CSS.
+Resources: This directory contains all view files and LESS or SASS files. It also contains lang directory to store language files.
+Routes: This directory contains all routes definitions for the application. php is the file which receives all the requests to your application and here you can redirect the requests to their respective controller methods.
+Storage: This directory contains blade templates, session files, cache files and other.
+Tests: This directory contains all the test files
+Vendor: This directory contains all composer dependencies
+Steps to create your first Laravel Application using Laravel tutorial
+1) Create Your Project:
+If you didn’t create your project in installation section, create now by executing below command:
+laravel new todo
+Copy
+2) Configure Database:
+We need database for our application, so it’s best to configure our database before doing anything. Laravel supports following 4 databases −
+MySQL
+Postgres
+SQLite
+SQL Server
+For this example, we will use SQLite as it is easy to configure and to use and you don’t have to install anything apart from creating just one empty file.
+For other databases, you need to have that database installed in your system and then you can configure accordingly.
+Laravel provides config/database.php to config database for production server but Laravel also works with .env file where you can configure your database for your development server. As we are developing this app in localhost we will work with .env file, so
+Clone .env.example file as .env
+cp .env.example .env
+Copy
+ In the file you will find code like below:
+DB_CONNECTION=mysql
+
+DB_HOST=127.0.0.1
+
+DB_PORT=3306
+
+DB_DATABASE=homestead
+
+DB_USERNAME=homestead
+
+DB_PASSWORD=secret
+Copy
+Replace above all 6 lines with below 1 line -- i.e Change the db_connection’s value to sqlite and delete rest of the db lines like below:
+DB_CONNECTION=sqlite
+Copy
+Now in your database directory, create a file – database.sqlite (this is database file with extension .sqlite):
+
+3) Make Auth:
+Laravel 6 comes with pre-built Authentication controllers and configuration. But since this version (Laravel 6), they removed the UI scaffolding to separate package. Thus here, we will install that package using Composer and scaffold the default authentication UI in our app.
+Execute Command –
+composer require laravel/ui
+Copy
+This package supports different types of front-end libraries/frameworks like Vue, React and also Bootstrap/jQuery. Let's keep our tutorial simply by using Bootstrap/jQuery. Execute below command:
+php artisan ui bootstrap --auth
+Copy
+
+Then run "npm install && npm run dev" to compile your fresh scaffolding.
+At this point -- all the configuration are done and we are ready to start building.
+4) Migrations:
+First step in developing any web application is to design database. Laravel offers great way to design database schema and tables and able to migrate it easily over different systems known as ‘Migrations'.
+Migrations are used to create, modify as well as share the application’s database schema. They are used with Laravel’s schema builder to build database schema easily. There are many benefits to create migrations for your database. You can easily rebuild your database structure using migration files on production or any other system.
+Don’t worry if you find this explanation confusing. Believe me, you will get your way soon. Just follow along.
+Execute below command:
+php artisan make:migration create_tasks_table --create=tasks
+Copy
+You will find your newly created migration in /database/migrations folder –
+
+Now let’s add two more column to tasks table by editing the newly created migration file.
+...
+public function up()
+{
+    Schema::create('tasks', function (Blueprint $table) {
+	  $table->bigIncrements('id');
+	  $table->string('description');
+	  $table->integer('user_id')->unsigned()->index();
+	  $table->timestamps();
+    });
+}
+...
+Copy
+The new column named “description” will store the task description and column named “user_id” will store the id of the user who created the task. We added “ ->unsigned()->index()” after the user_if because it is a foreign key from users table.
+Now We finished creating the database schema. To use this schema to create tables in the database, execute below command. Migrate command will update the changes made in schema to the actual database.
+php artisan migrate
+Copy
+5) Eloquent Models
+Eloquent is Laravel’s ORM which provides simple Active-record Implementation for working with database. Each Database table can have corresponding Eloquent model. Eloquent Model represents database entities and can be used to query data as well as insert and update data to the tables.So, let’s make a model for our tasks table using make:model command.
+php artisan make:model Task
+Copy
+This command will create Task model in App directory as shown below.
+
+6) One-to-Many Relationship
+Relationships are used to connect tables. Eloquent provides way to connect their models through eloquent relationships. One-to-many relationship means when one model owns multiple amounts of another model.For our example: single user can have many tasks thus one-to-many relationship exists between User table and Task Table. It's very easy to define and use Eloquent relationship and the benefit is, you don’t have to run query at all. Eloquent will bind the models so you will have to only use functions.
+Let’s edit Task Model and User Model to create Eloquent Relationship:
+Task Model (task.php found in app/task.php):
+...
+use App\User;
+class Task extends Model
+{    
+    public function user()
+    {
+    	return $this->belongsTo(User::class);
+    }
+
+	  
+}
+Copy
+User Model (user.php found in app/user.php):
+...
+use App\Task;
+class User extends Authenticatable
+{
+    ...
+    public function tasks()
+    {
+    	return $this->hasMany(Task::class);
+    }
+
+	  
+}
+Copy
+7) Artisan Tinker -- (Totally Optional)
+Laravel provides a command-line interface known as Artisan. Artisan contains various commands and among them, we will now discuss about Tinker. Tinker allows you to interact with your entire Laravel application through console window without the need of accessing web interface. Major benefit of tinker is you can test relationships, debug data and access Eloquent ORM, jobs, tests, events etc. So we will also be using Tinker in our laravel tutorial. Let’s say you registered to the app and created two tasks. Now you check those tasks directly in the console window as below:
+$ php artisan tinker
+>App\User::first()->tasks;
+Copy
+Tinker directly access database so this is a great tool for testing functions as well as the data.
+8) Controllers
+Controllers are used to direct traffic between views and models and they can group multiple request handling logic into a single class. Thus, generally they receive all the request and based on their logic, they redirect or return respective data.In our example, now we are moving towards front-end, thus we should make controllers through which we can handle requests coming to our application. Execute below command to create controller for tasks:
+php artisan make:controller TasksController
+Copy
+This will create taskscontroller and you can find that in app/Http/Controllers directory.
+9) Routing
+Routing means to accept the request and redirect it to appropriate function.Our app needs five routes which will do following:
+Login
+Register
+Display list of all our tasks
+Add new tasks
+Delete existing tasks
+Login and register are added by default by Laravel so now we need to take care of only three routes.
+Before editing routing, fix auth controllers:
+Laravel provides ‘/home' page as a logged in welcome page. Thus whenever we log in, it will redirect us to ‘/home‘ route. But in our application, we don't want that. We want to redirect to homepage ‘/‘ and show our tasks list there.
+So, edit LoginController.php and RegisterController.php as below:
+Go to app/Http/Controllers/Auth and open LoginController.php and RegisterController.php and make changes as stated below to both files.
+On around Line 28/31x, you will find code – “protected $redirectTo = ‘/home’;”
+Change it to “protected $redirectTo = ‘/’;”
+Save and Close. You are done!
+Laravel provides various route files inside ‘/routes‘ folder for various use cases. For example: routing configuration for API will go in ‘/routes/api.php‘ file while routing configuration for our regular web application will go in ‘/routes/web.php‘.
+Now, let’s edit web.php. Below is the edited version of file. Make changes accordingly and delete any other. (Means remove the routing for homecontroller and add routes for taskscontroller as shown below):
+<?php
+Route::get('/', 'TasksController@index');
+
+Auth::routes();
+
+Route::get('/task','TasksController@add');
+Route::post('/task','TasksController@create');
+
+Route::get('/task/{task}','TasksController@edit');
+Route::post('/task/{task}','TasksController@update');
+Copy
+10) Views – Blade Templates
+Views are stored in resources/views directory. Views are the front-end of the Laravel application and it separates application logic and the presentation logic. We need to create and design following views:
+welcome.blade.php ( Homepage which shows list of tasks if logged in)
+add.blade.php (Form which lets you to add new task)
+edit.blade.php (Form which lets you to edit any task)
+Laravel comes with decent layout which contains navbar called app.blade.php located in Views/layouts directory.
+With the help of laravel’s blade engine, you can divide your pages into sub-sections and also can use the laravel’s default navbar section into your new views.
+Now, in /resources/views folder, create add.blade.php and edit.blade.php files with the markup given below.
+@extends('layouts.app')
+
+//this will add laravel’s default navbar to your page
+
+@section('content')
+
+//here goes your body content
+
+@endsection
+Copy
+In welcome.blade.php too, replace all code with the above. We will edit the views later after defining our controller functions using Route-Model Binding concept.
+11) Route-Model Bindng
+Laravel has lot of amazing features to make web development easy, clean, and less time consuming. Among them, one of the most prominent feature is Route-Model Binding. It is a mechanism to inject a model instance into your routes. It means, you can pass the model object to the routes and also to views through routes which will help you to get the object values easily in the view.Don’t worry if explanation is confusing. With time, you will get to know.
+Now let’s add functions handling above routes to TasksController.php. It should look like below.
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Auth;
+use App\Task;
+
+class TasksController extends Controller
+{
+    public function index()
+    {
+    	$user = Auth::user();
+    	return view('welcome',compact('user'));
+    }
+
+    public function add()
+    {
+    	return view('add');
+    }
+
+    public function create(Request $request)
+    {
+    	$task = new Task();
+    	$task->description = $request->description;
+    	$task->user_id = Auth::id();
+    	$task->save();
+    	return redirect('/'); 
+    }
+
+    public function edit(Task $task)
+    {
+
+    	if (Auth::check() && Auth::user()->id == $task->user_id)
+        {            
+                return view('edit', compact('task'));
+        }           
+        else {
+             return redirect('/');
+         }            	
+    }
+
+    public function update(Request $request, Task $task)
+    {
+    	if(isset($_POST['delete'])) {
+    		$task->delete();
+    		return redirect('/');
+    	}
+    	else
+    	{
+    		$task->description = $request->description;
+	    	$task->save();
+	    	return redirect('/'); 
+    	}    	
+    }
+}
+Copy
+Here you can see that I am passing “Task $task” object in the function as well as “Request $request” object with the help of Route-model binding mechanism.
+Note: Don't forget to add ‘use Auth;use App\Task;‘ otherwise you will get ‘Class not found error'
+12) Editing views
+Now we have our controller functions set up and returning the appropriate views with the attached model objects.So now, we need to edit our views so that it displays the form if necessary and needed data using model objects passed through routes.
+Display all tasks page
+Open welcome.blade.php and edit it to the following.
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="card">
+        @if (Auth::check())
+            <div class="card-header">Tasks List</div>
+            <div class="card-body">
+                <a href="/task" class="btn btn-primary">Add new Task</a>
+                <table class="table mt-4">
+                    <thead><tr>
+                        <th colspan="2">Tasks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach($user->tasks as $task)
+                    <tr>
+                        <td>
+                            {{$task->description}}
+                        </td>
+                        <td>
+                            
+                            <form action="/task/{{$task->id}}">
+                                <button type="submit" name="edit" class="btn btn-primary">Edit</button>
+                                <button type="submit" name="delete" formmethod="POST" class="btn btn-danger">Delete</button>
+                                {{ csrf_field() }}
+                            </form>
+                        </td>
+                    </tr>
+                    
+
+                @endforeach
+                </tbody>
+                </table>
+            </div>
+        @else
+            <div class="card-body">
+                <h3>You need to log in. <a href="/login">Click here to login</a></h3>
+            </div>
+        @endif
+    </div>                         
+</div>
+@endsection
+Copy
+Tip:
+Blade template engine allows us to use php inside HTML without enclosing it inside “<?php  ?>”.
+For if else logic, you can use :
+@if()
+       //your html statements
+@else
+       //your html statements
+@endif
+Copy
+That’s what I used in the above code.
+Auth::check() is the Laravel function to check whether user is logged in or not. It gives true or false as return.
+Add new task page
+Open add.blade.php and edit as following:
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+                <h2>Add New Task</h2>
+               
+<form method="POST" action="/task">
+
+    <div class="form-group">
+        <textarea name="description" class="form-control"></textarea>  
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add Task</button>
+    </div>
+{{ csrf_field() }}
+</form>
+
+
+</div>
+@endsection
+Copy
+Tip:
+{{  csrf_field() }} is used to generate csrf token and insert in the form. This token is used to verify that the authenticated logged user is the one making request in application. This is the security feature provided by Laravel out of the box.
+Edit task page
+Open edit.blade.php and edit as following.
+@extends('layouts.app')
+
+@section('content')
+	<div class="container">
+	<h1>Edit the Task</h1>
+
+<form method="POST" action="/task/{{ $task->id }}">
+
+	<div class="form-group">
+		<textarea name="description" class="form-control">{{$task->description }}</textarea>	
+	</div>
+
+
+	<div class="form-group">
+		<button type="submit" name="update" class="btn btn-primary">Update task</button>
+	</div>
+{{ csrf_field() }}
+</form>
+
+
+
+</div>
+
+@stop
+Copy
+After editing this view, all the pieces are joined so you can now test your application.
+First register and then login and then check if you can create task, edit task and delete task.
+13) Run the project in Localhost
+To run the project, run this command in the terminal window – php artisan serve. Make sure you are in the root of your application in terminal.
+
